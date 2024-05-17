@@ -91,4 +91,12 @@ const deleteGame = async (req, res, next) => {
 
 }
 
-module.exports = { createGame, findAllGames, updateGame, deleteGame, checkEmptyFields, checkIsGameExists, checkIfCategoriesAvaliable, checkIfUsersAreSafe };
+const checkIsVoteRequest = async (req, res, next) => {
+  // Если в запросе присылают только поле users
+if (Object.keys(req.body).length === 1 && req.body.users) {
+  req.isVoteRequest = true;
+}
+next();
+};
+
+module.exports = { createGame, findAllGames, updateGame, deleteGame, checkEmptyFields, checkIsGameExists, checkIfCategoriesAvaliable, checkIfUsersAreSafe, checkIsVoteRequest };
