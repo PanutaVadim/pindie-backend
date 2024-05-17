@@ -63,5 +63,10 @@ const deleteUser = async (req, res, next) => {
 
 }
 
+const sendMe = (req, res) => {
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify(req.user));
+  };
 
-module.exports = { createUser, findAllUsers, updateUser, deleteUser, hashPassword };
+
+module.exports = { createUser, findAllUsers, updateUser, deleteUser, hashPassword, sendMe };
