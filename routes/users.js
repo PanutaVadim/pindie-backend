@@ -11,4 +11,3 @@ usersRouter.delete("/users/:id", checkAuth, deleteUser, sendUserDeleted);
 usersRouter.get("/me", checkAuth, sendMe)
 
 module.exports = usersRouter;
-
