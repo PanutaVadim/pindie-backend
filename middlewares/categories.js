@@ -38,6 +38,8 @@ const checkEmptyName = async (req, res, next) => {
    } 
 
    const checkIsCategoryExists = async (req, res, next) => {
+
+    
     const isInArray = req.categoriesArray.find((category) => {
       return req.body.name === category.name;
     });

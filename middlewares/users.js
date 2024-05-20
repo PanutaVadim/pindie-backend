@@ -62,16 +62,21 @@ const checkEmptyNameAndEmailAndPassword = async (req, res, next) => {
   };
 
   const checkIsUserExists = async (req, res, next) => {
+    if(!req.usersArray) {
+      // обработка случая, когда req.usersArray не установлен
+      return res.status(500).send("Ошибка: массив пользователей не найден");
+    }
+    
     const isInArray = req.usersArray.find((user) => {
       return req.body.email === user.email;
     });
     if (isInArray) {
-      res.setHeader("Content-Type", "application/json");
-          res.status(400).send(JSON.stringify({ message: "Пользователь с таким email уже существует" }));
+      res.status(400).json({ message: "Пользователь с таким email уже существует" });
     } else {
       next();
     }
   };
+  
 
 const updateUser = async (req, res, next) => {
     try {
@@ -93,10 +98,6 @@ const deleteUser = async (req, res, next) => {
 
 }
 
-const sendMe = (req, res) => {
-    res.setHeader("Content-Type", "application/json");
-    res.end(JSON.stringify(req.user));
-  };
 
 
-module.exports = { createUser, findAllUsers, updateUser, deleteUser, checkEmptyNameAndEmailAndPassword, checkEmptyNameAndEmail, checkIsUserExists, hashPassword, sendMe };
+module.exports = { createUser, findAllUsers, updateUser, deleteUser, checkEmptyNameAndEmailAndPassword, checkEmptyNameAndEmail, checkIsUserExists, hashPassword };
