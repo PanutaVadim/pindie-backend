@@ -62,10 +62,6 @@ const checkEmptyNameAndEmailAndPassword = async (req, res, next) => {
   };
 
   const checkIsUserExists = async (req, res, next) => {
-    if(!req.usersArray) {
-      // обработка случая, когда req.usersArray не установлен
-      return res.status(500).send("Ошибка: массив пользователей не найден");
-    }
     
     const isInArray = req.usersArray.find((user) => {
       return req.body.email === user.email;

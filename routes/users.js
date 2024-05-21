@@ -12,7 +12,7 @@ checkIsUserExists,
 hashPassword,
 createUser,
 sendUserCreated)
-usersRouter.put("/users/:id", checkAuth, checkEmptyNameAndEmail, checkIsUserExists, updateUser, sendUserUpdating)
+usersRouter.put("/users/:id", checkAuth, checkEmptyNameAndEmail, updateUser, sendUserUpdating)
 usersRouter.delete("/users/:id", checkAuth, deleteUser, sendUserDeleted);
 usersRouter.get("/me", checkAuth, sendMe)
 
