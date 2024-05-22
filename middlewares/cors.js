@@ -1,9 +1,5 @@
 const allowedCors = [
-    'https://frontend-vadimpanuta.nomoredomainswork.ru',
-    'http://frontend-vadimpanuta.nomoredomainswork.ru',
-    'https://backend-vadimpanuta.nomoredomainswork.ru',
-    'http://backend-vadimpanuta.nomoredomainswork.ru',
-    'http://localhost:3000',
+    "http://localhost:3000",
     'http://localhost:3001',
   ];
   
