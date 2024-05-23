@@ -1,6 +1,7 @@
 const allowedCors = [
     "http://localhost:3000",
-    "http://localhost:3001",
+    "http://frontend-vadimpanuta.nomoredomainswork.ru",
+    "https://frontend-vadimpanuta.nomoredomainswork.ru",
   ];
   
   function cors(req, res, next) {
