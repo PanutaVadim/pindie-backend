@@ -13,21 +13,21 @@ gamesRouter.post(
     checkIfCategoriesAvaliable,
     checkEmptyFields,
     createGame,
-    sendGameCreated,
     checkAuth,
+    sendGameCreated,
   );
   gamesRouter.get("/games/:id", findGameById, sendGameById )
   
   gamesRouter.put(
     "/games/:id",
-    findAllGames,
+    findGameById,
     checkIsVoteRequest,
     checkIfUsersAreSafe,
     checkIfCategoriesAvaliable,
     checkEmptyFields,
     updateGame,
-    sendGameUpdating,
     checkAuth,
+    sendGameUpdating,
   );
 gamesRouter.delete("/games/:id", checkAuth, deleteGame, sendGameDeleted)
 
